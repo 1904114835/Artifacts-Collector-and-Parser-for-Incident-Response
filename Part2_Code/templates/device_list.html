@@ -1,0 +1,151 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+<!----------- Content ----------->
+
+<div class="anor_fn_ranking_page">
+	<div class="container small">
+		<div class="ranking_page">
+
+			<div class="page_title_holder">
+				<h3 class="fn_title">List of Devices</h3>
+				<p class="fn_desc"></p>
+				<div class="filters">
+					<div class="dd_filter">
+						<div class="input_wrapper">
+							<input readonly type="text" placeholder="Last 7 Days" class="filter_list"
+								autocomplete="off">
+							<img src="svg/down.svg" alt="" class="fn__svg">
+						</div>
+						<div class="input_dd_list">
+							<div data-id="1"><a href="#">Last 7 Days</a></div>
+							<div data-id="2"><a href="#">Last 30 Days</a></div>
+							<div data-id="3"><a href="#">Last 2 Months</a></div>
+							<div data-id="4"><a href="#">Last 6 Months</a></div>
+							<div data-id="5"><a href="#">Last 1 Year</a></div>
+						</div>
+					</div>
+					<div class="dd_filter">
+						<div class="input_wrapper">
+							<input readonly type="text" placeholder="All Categories" class="filter_list"
+								autocomplete="off">
+							<img src="svg/down.svg" alt="" class="fn__svg">
+						</div>
+						<div class="input_dd_list">
+							<div data-id="*"><a href="#">All Categories</a></div>
+							<div data-id="1"><a href="#">Art / Paintings</a></div>
+							<div data-id="2"><a href="#">Collectibles</a></div>
+							<div data-id="3"><a href="#">Music</a></div>
+							<div data-id="4"><a href="#">Photography</a></div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
+
+			<!-- Sortable Rankings -->
+			<div class="anor_fn_sortable_rankings">
+				<table class="sortable_table sortable">
+
+					<!-- Table Header -->
+					<thead>
+						<tr>
+							<td class="row_collection">Device</td>
+							<td class="row_volume">Amount</td>
+							<td class="row_h">24h</td>
+							<td class="row_d">7d</td>
+							<td class="row_price">Icon Cache</td>
+							<td class="row_owners">Event Log</td>
+							<td class="row_items">Registry</td>
+						</tr>
+					</thead>
+					<!-- !Table Header -->
+
+
+					<!-- Table Body -->
+					<tbody>
+
+						<!-- hostname, mac_addr, amount, 24h, 7d, icon, event log, registry -->
+						{% for device in devices%}
+						<!-- Table ROW -->
+						<tr>
+							<td class="row_collection">
+								<div class="ranking_collection">
+									<div class="fn_counter">{{ loop.index }}</div>
+									<div class="item__short">
+										<div class="img_holder">
+											<a href="product.html" class="full_link"></a>
+											<img src="{{ static(device['img_url']) }}" alt="">
+											
+										</div>
+										<div class="item_desc">
+											<h3 class="fn_title"><a href="product.html">{{ device['hostname'] }}</a></h3>
+											<p class="fn_desc">
+												<a href="collection-single-items.html">{{ device['mac_addr'] }}
+													{% if device['isActive'] %}
+													<span
+														class="verified_icon tippy"
+														data-tippy-content="Verified Collection"><img
+															src="svg/checked.svg" alt="" class="fn__svg"></span>
+													{% endif %}
+														</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</td>
+							<td class="row_volume">
+								<div class="value neutral">{{ device['amount'] }}</div>
+							</td>
+							<td class="row_h">
+								<div class="value {% if device['24h_isIncrease'] %}increase{% else %}decrease{% endif %}">{{ device['24h'] }}</div>
+							</td>
+							<td class="row_d">
+								<div class="value {% if device['7d_isIncrease'] %}increase{% else %}decrease{% endif %}">{{ device['7d'] }}</div>
+							</td>
+							<td class="row_price">
+								<div class="value neutral">{{ device['icon_cache'] }}</div>
+							</td>
+							<td class="row_owners">
+								<div class="value neutral">{{ device['event_log'] }}</div>
+							</td>
+							<td class="row_items">
+								<div class="value neutral">{{ device['registry'] }}</div>
+							</td>
+						</tr>
+						<!-- !Table ROW -->
+						{% endfor %}
+
+					</tbody>
+					<!-- Table Body -->
+
+
+				</table>
+
+				<!-- Clearfix after the table -->
+				<div class="clearfix"></div>
+
+
+				<!-- Pagination -->
+				<div class="anor_fn_pagination multiple">
+					<ul>
+						<li><span class="current">1-10</span></li>
+						<!-- <li><a href="#">11-20</a></li> -->
+						<!-- <li><a href="#">21-30</a></li> -->
+					</ul>
+				</div>
+				<!-- !Pagination -->
+
+			</div>
+			<!-- !Sortable Rankings -->
+
+
+		</div>
+	</div>
+</div>
+
+
+<!----------- !Content ----------->
+
+{% endblock %}

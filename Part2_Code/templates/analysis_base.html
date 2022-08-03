@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!----------- Content ----------->
+
+<div class="anor_fn_collectionsingle">
+
+    <div class="anor_fn_collection_bg" data-bg-img="{{ url('barchart') }}"></div>
+
+    <!-- Collection Information -->
+    <div class="anor_fn_collection_info">
+        <div class="container small">
+            <div class="desc_in">
+
+                <!-- Counter -->
+                <!-- [72, 3, 20, 7, 34, 9] -->
+                <!-- ['Icon Cache', 'Basic Infor', 'Registry Autorun', 'Connected Device', 'USB Dedevice', 'Wireless Device'] -->
+                <div class="anor_fn_boxed_counter">
+                    <ul>
+                        {%set lables = ['Icon Cache', 'Basic Infor', 'Registry Autorun', 'Connected Device', 'USB Dedevice', 'Wireless Device'] %}
+                        {% set heights = [72, 3, 20, 7, 34, 9] %}
+                        {% for i in range(len(lables)) %}
+                        <li style="width:200px">
+                            <div class="item">
+                                <h3 class="fn_title"><span class="anor_fn_counter" data-from="0" data-to="{{ heights[i] }}"
+                                        data-speed="2000">0</span></h3>
+                                <p class="fn_desc">{{ lables[i] }}</p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- !Counter -->
+
+            </div>
+        </div>
+    </div>
+    <!-- !Collection Information -->
+
+
+
+</div>
+
+
+<!----------- !Content ----------->
+{% endblock %}

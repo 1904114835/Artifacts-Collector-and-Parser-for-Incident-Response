@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!----------- Content ----------->
+<div class="anor_fn_author_page">
+
+    <!-- URL detector -->
+    <div class="author_info_box">
+        <div class="container xsmall">
+            <div class="info_box">
+                
+                <div class="author_content">
+                    <div class="desc">
+                        <h3 class="fn_title">Malicious URL Detector</h3>
+                        <p>Paste the URL below and click the CHECK button</p>
+                    </div>
+                    <div class="author_meta">
+                        <div class="info" style="width: 70%">
+                            <!-- input line -->
+                            <input type="text" class="input_line" id="url_input" placeholder="Paste the URL here" style="width: 100%">
+                        </div>
+                       
+                        <div class="flw">
+                            <a href="#" class="anor_fn_follow" data-followed="Good" data-id="">
+                                <span class="plus"></span>
+                                <span class="icon"><img src="svg/checked.svg" alt="" class="fn__svg"></span>
+                                <span class="text">CHECK</span>
+                                <!-- Good or WARNNING -->
+                            </a>
+                        </div>
+                    </div>
+                    <div class="followers">
+                        <span class="anor_fn_follower" data-action="followers" data-id="">
+                            <!-- <span >WARNING: this URL may contain harmful or objectionable content</span> -->
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- URL detector -->
+
+    <!-- eventlog detector -->
+    <div class="author_info_box">
+        <div class="container xsmall">
+            <div class="info_box">
+                
+                <div class="author_content">
+                    <div class="desc">
+                        <h3 class="fn_title">Eevent Log Detector</h3>
+                    </div>
+                    <div class="author_meta">
+                        <div class="info" style="width: 70%">
+                            <!-- input line -->
+                            <input type="text" class="input_line" id="url_input" placeholder="Paste the URL here" style="width: 100%">
+                        </div>
+                       
+                        <div class="flw">
+                            <a href="#" class="anor_fn_follow" data-followed="Good" data-id="">
+                                <span class="plus"></span>
+                                <span class="icon"><img src="svg/checked.svg" alt="" class="fn__svg"></span>
+                                <span class="text">CHECK</span>
+                                <!-- Good or WARNNING -->
+                            </a>
+                        </div>
+                    </div>
+                    <div class="followers">
+                        <span class="anor_fn_follower" data-action="followers" data-id="">
+                            <!-- <span >WARNING: this URL may contain harmful or objectionable content</span> -->
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- eventlog detector -->
+
+    
+</div>
+<!----------- !Content ----------->
+
+{% endblock %}

@@ -1,0 +1,133 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+<!----------- Content ----------->
+<div class="anor_fn_product_page">
+
+
+	<div class="anor_fn_product">
+		<div class="container small">
+
+
+			<!-- Product Information -->
+			<div class="anor_fn_product_info">
+
+				<!-- Product Left Part -->
+				<div class="product_left">
+
+					<div class="product_info">
+						
+						<div class="product_table_list">
+							<table>
+								<tbody>
+									<tr>
+										<td>
+											Device
+										</td>
+										<td>
+											Zhu Yongyu's Windows 10 PC
+										</td>
+									</tr>
+									{% block item_table %}
+									<tr>
+										<td>
+											Index
+										</td>
+										<td>
+											{{ item['idx'] }}
+										</td>
+									</tr>
+									<tr>
+										<td>
+											MAC Address
+										</td>
+										<td>
+											{{ item['mac_addr'] }}
+										</td>
+									</tr>
+									<tr>
+										<td>
+											path
+										</td>
+										<td>
+											{{ item['path'] }}
+										</td>
+									</tr>
+									{% endblock %}
+								</tbody>
+							</table>
+						</div>
+						
+					</div>
+
+				</div>
+				<!-- !Product Left Part -->
+
+
+			</div>
+			<!-- !Product Information -->
+
+
+			<div class="product_activity_wrap">
+				<!-- Accordion -->
+				<div class="anor_fn_accordion">
+					<div class="accordion_header">
+						<a href="#" class="full_link"></a>
+						<span class="text">Device Activity</span>
+						<span class="icon"><img src="svg/down.svg" alt="" class="fn__svg"></span>
+					</div>
+					<div class="accordion_content">
+						<div class="acc_cont">
+
+							<div class="anor_fn_product_activity">
+								<div class="filters">
+									<div class="filter">
+										<a class="filter_opener" href="#"><span
+												class="icon"><span></span></span>Filter</a>
+										<div class="filter_list">
+											<ul>
+												<li><a href="#" data-id="1">Bids</a></li>
+												<li><a href="#" data-id="2">Listings</a></li>
+												<li><a class="selected" href="#" data-id="3">Sales</a></li>
+												<li><a class="selected" href="#" data-id="4">Transfers</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="selected_filter" data-id="3">
+										<a href="#">Icon Cache<img src="svg/cancel.svg" alt="" class="fn__svg"></a>
+									</div>
+								</div>
+								<div class="pa_header">
+									<div class="item item_event">Event</div>
+									<div class="item item_price">Index</div>
+									<div class="item item_from">MAC address</div>
+									<div class="item item_to">Path</div>
+									<div class="item item_time">Time</div>
+								</div>
+								<div class="pa_content">
+									{% for item in items %}
+									<div class="pa_item active" data-id="2">
+										<div class="item item_event">{{ item['event'] }}</div>
+										<div class="item item_price">4.34 <span class="tippy"
+												data-tippy-content="Blockchain: Ethereum"> {{ item['idx'] }}</span></div>
+										<div class="item item_from"><a href="author-collected.html">{{ item['mac_addr'] }}</a>
+										</div>
+										<div class="item item_to"><a href="author-collected.html">{{ item['path'] }}</a>
+										</div>
+									</div>
+									{% endfor %}
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<!-- !Accordion -->
+			</div>
+
+		</div>
+	</div>
+
+</div>
+<!----------- !Content ----------->
+{% endblock %}

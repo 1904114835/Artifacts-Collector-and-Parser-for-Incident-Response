@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="description" content="Anor">
+    <meta name="author" content="Frenify">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>{% block title %}Artifact Collector and Parser{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- !Google Fonts -->
+
+    <!-- Styles -->
+    <link type="text/css" rel="stylesheet" href="{{ static('css/base.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ static('css/hamburger.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ static('css/tippy.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ static('css/select2.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ static('css/fontello.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ static('css/flickity.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ static('css/dark.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ static('css/style.css') }}" />
+    <!--[if lt IE 9]> <script type="text/javascript" src="{{ static('js/modernizr.custom.js') }}"></script> <![endif]-->
+    <!-- !Styles -->
+
+</head>
+
+
+<body>
+
+<!-- Main -->
+<div class="anor_fn_main">
+
+	<!-- Share Modalbox -->
+	<div class="anor_fn_modal share_box">
+		<div class="modal_in">
+			<div class="modal_closer"><img src="{{ static('svg/cancel.svg') }}" alt="" class="fn__svg"></div>
+			<div class="modal_title">Share</div>
+			<div class="modal_content">
+				<div class="share_title"></div>
+				<div class="share_list">
+					<ul>
+						<li><a class="facebook" href="#" target="_blank"><i class="fn-icon-facebook"></i></a></li>
+						<li><a class="twitter" href="#" target="_blank"><i class="fn-icon-twitter"></i></a></li>
+						<li><a class="pinterest" href="#" target="_blank"><i class="fn-icon-pinterest"></i></a></li>
+<!--						<li><a class="linkedin" href="#" target="_blank"><i class="fn-icon-linkedin"></i></a></li>-->
+<!--						<li><a class="email" href="#" target="_blank"><i class="fn-icon-email"></i></a></li>-->
+						<li><a class="vk" href="#" target="_blank"><i class="fn-icon-vkontakte"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- !Share Modalbox -->
+
+	<!-- Report Modalbox -->
+	<div class="anor_fn_modal report_box">
+		<div class="modal_in">
+			<div class="modal_closer"><img src="{{ static('svg/cancel.svg') }}" alt="" class="fn__svg"></div>
+			<div class="modal_title">Report</div>
+			<div class="modal_content">
+				<h3 class="fn_title"></h3>
+				<p class="fn_desc">I think this item is...</p>
+				<form>
+					<select>
+						<option disabled>Select a reason</option>
+						<option value="fake">Fake collection or possible scam</option>
+						<option value="explicit">Explicit and sensitive content</option>
+						<option value="spam">Spam</option>
+						<option value="stolen">Might be stolen</option>
+						<option value="other">Other</option>
+					</select>
+					<div class="clearfix"></div>
+					<input type="submit" value="Report" />
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- !Report Modalbox -->
+	
+	<!-- Follower Modalbox -->
+	<div class="anor_fn_modal follower_box">
+		<div class="modal_in">
+			<div class="modal_closer"><img src="{{ static('svg/cancel.svg') }}" alt="" class="fn__svg"></div>
+			<div class="modal_title"></div>
+			<div class="modal_content">
+				<ul class="list">
+					<!-- You have to insert here items (followers or followings) via ajax -->
+					<li>
+						<div class="mini_item">
+							<div class="mi_left">
+								<div class="author_img">
+									<a href="author-collected.html" class="full_link"></a>
+									<img src="{{ static('img/author/1.jpg') }}" alt="">
+									<span class="icon">
+										<img src="{{ static('svg/checked.svg') }}" alt="" class="fn__svg">
+									</span>
+								</div>
+								<div class="author_info">
+									<h3 class="fn_title"><a href="author-collected.html">mrCopper</a></h3>
+									<p class="fn_desc">10,033 Followers</p>
+								</div>
+							</div>
+							<div class="mi_right">
+								<a href="#" class="anor_fn_follow" data-followed="Followed" data-id="">
+									<span class="plus"></span>
+									<span class="icon"><img src="{{ static('svg/checked.svg') }}" alt="" class="fn__svg"></span>
+									<span class="text">Follow</span>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="mini_item">
+							<div class="mi_left">
+								<div class="author_img">
+									<a href="author-collected.html" class="full_link"></a>
+									<img src="{{ static('img/author/2.jpg') }}" alt="">
+									<span class="icon">
+										<img src="{{ static('svg/checked.svg') }}" alt="" class="fn__svg">
+									</span>
+								</div>
+								<div class="author_info">
+									<h3 class="fn_title"><a href="author-collected.html">OrcaVault</a></h3>
+									<p class="fn_desc">5,946 Followers</p>
+								</div>
+							</div>
+							<div class="mi_right">
+								<a href="#" class="anor_fn_follow" data-followed="Followed" data-id="">
+									<span class="plus"></span>
+									<span class="icon"><img src="{{ static('svg/checked.svg') }}" alt="" class="fn__svg"></span>
+									<span class="text">Follow</span>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="mini_item">
+							<div class="mi_left">
+								<div class="author_img">
+									<a href="author-collected.html" class="full_link"></a>
+									<img src="{{ static('img/author/3.jpg') }}" alt="">
+									<span class="icon">
+										<img src="{{ static('svg/checked.svg') }}" alt="" class="fn__svg">
+									</span>
+								</div>
+								<div class="author_info">
+									<h3 class="fn_title"><a href="author-collected.html">baghodler</a></h3>
+									<p class="fn_desc">930 Followers</p>
+								</div>
+							</div>
+							<div class="mi_right">
+								<a href="#" class="anor_fn_follow" data-followed="Followed" data-id="">
+									<span class="plus"></span>
+									<span class="icon"><img src="{{ static('svg/checked.svg') }}" alt="" class="fn__svg"></span>
+									<span class="text">Follow</span>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="mini_item">
+							<div class="mi_left">
+								<div class="author_img">
+									<a href="author-collected.html" class="full_link"></a>
+									<img src="{{ static('img/author/4.jpg') }}" alt="">
+									<span class="icon">
+										<img src="{{ static('svg/checked.svg') }}" alt="" class="fn__svg">
+									</span>
+								</div>
+								<div class="author_info">
+									<h3 class="fn_title"><a href="author-collected.html">Cochang</a></h3>
+									<p class="fn_desc">10,033 Followers</p>
+								</div>
+							</div>
+							<div class="mi_right">
+								<a href="#" class="anor_fn_follow" data-followed="Followed" data-id="">
+									<span class="plus"></span>
+									<span class="icon"><img src="{{ static('svg/checked.svg') }}" alt="" class="fn__svg"></span>
+									<span class="text">Follow</span>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="mini_item">
+							<div class="mi_left">
+								<div class="author_img">
+									<a href="author-collected.html" class="full_link"></a>
+									<img src="{{ static('img/author/5.jpg') }}" alt="">
+									<span class="icon">
+
+										<img src="{{ static('svg/checked.svg') }}" alt="" class="fn__svg">
+									</span>
+								</div>
+								<div class="author_info">
+									<h3 class="fn_title"><a href="author-collected.html">sadplatinum</a></h3>
+									<p class="fn_desc">5,163 Followers</p>
+								</div>
+							</div>
+							<div class="mi_right">
+								<a href="#" class="anor_fn_follow" data-followed="Followed" data-id="">
+									<span class="plus"></span>
+									<span class="icon"><img src="{{ static('svg/checked.svg') }}" alt="" class="fn__svg"></span>
+									<span class="text">Follow</span>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="mini_item">
+							<div class="mi_left">
+								<div class="author_img">
+									<a href="author-collected.html" class="full_link"></a>
+									<img src="{{ static('img/author/6.jpg') }}" alt="">
+									<span class="icon">
+										<img src="{{ static('svg/checked.svg') }}" alt="" class="fn__svg">
+									</span>
+								</div>
+								<div class="author_info">
+									<h3 class="fn_title"><a href="author-collected.html">moonbase.eth</a></h3>
+									<p class="fn_desc">1,320 Followers</p>
+								</div>
+							</div>
+							<div class="mi_right">
+								<a href="#" class="anor_fn_follow" data-followed="Followed" data-id="">
+									<span class="plus"></span>
+									<span class="icon"><img src="{{ static('svg/checked.svg') }}" alt="" class="fn__svg"></span>
+									<span class="text">Follow</span>
+								</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- !Follower Modalbox -->
+	
+	<!-- Header -->
+	<header class="anor_fn_header">
+		<div class="container">
+			<div class="header_in">
+				
+				<!-- Left Part -->
+				<div class="header_left">
+					<div class="fn_logo" style="width: 83px; height: 20px">
+						<a href="{{ url('index') }}"><img src="{{ static('img/logo.png') }}" alt="" ></a>
+					</div>
+					<div class="nav_list">
+						<ul class="main_menu">
+							<li class="menu-item-has-children">
+								<a href="#">Discover<img src="{{ static('svg/down.svg') }}" alt="" class="fn__svg"></a>
+								<ul class="sub-menu">
+									<li><a href="{{ url('activity_iconcache') }}">Icon Cache</a></li>
+									<li><a href="{{ url('activity_basicinfor') }}">Basic Infor</a></li>
+									<li><a href="{{ url('activity_eventlog') }}">Event Log</a></li>
+									<li><a href="{{ url('activity_registryautorun') }}">Registry Autorun</a></li>
+								</ul>
+							</li>
+							<li><a href="{{ url('device_list') }}">Devices</a></li>
+							<li><a href="{{ url('analysis') }}">Analysis</a></li>
+							<li><a href="{{ url('detector') }}">Detector</a></li>
+							<li><a href="{{ url('aboutus') }}">About us</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- !Left Part -->
+				
+				<!-- Right Part -->
+				<div class="header_right">
+					<div class="fn_search">
+						<input type="text" name="s" placeholder="Search Event" />
+						<input type="submit" value="" />
+						<img src="{{ static('svg/search.svg') }}" alt="" class="fn__svg">
+					</div>
+					<div class="fn_signin">
+						<a href="sign-in.html" class="anor_fn_button small">Sign In</a>
+					</div>
+				</div>
+				<!-- !Right Part -->
+				
+			</div>
+		</div>
+	</header>
+	<!-- /Header -->
+	
+
+	
+	<!-- Mobile Menu -->
+	<div class="anor_fn_mobile_menu">
+		<div class="mobile_menu_inner">
+			<div class="mobile_in">
+				<div class="logo">
+					<a href="index.html"><img style="width:128px; height:128px" src="{{ static('img/logo.png') }}" alt="" /></a>
+				</div>
+				<div class="trigger">
+					<div class="hamburger hamburger--slider">
+						<div class="hamburger-box">
+							<div class="hamburger-inner"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dropdown">
+			<div class="dropdown_inner">
+				<ul class="vert_menu">
+					<li class="menu-item-has-children">
+						<a href="discover-collections.html">Discover<img src="{{ static('svg/down.svg') }}" alt="" class="fn__svg"></a>
+						<ul class="sub-menu">
+							<li><a href="popular-collections.html">Popular</a></li>
+							<li><a href="featured-collections.html">Featured</a></li>
+							<li><a href="discover-items.html">New Items</a></li>
+							<li><a href="discover-collections.html">Collections</a></li>
+						</ul>
+					</li>
+					<li><a href="activity.html">Activity</a></li>
+					<li><a href="blog.html">Community</a></li>
+					<li class="menu-item-has-children">
+						<a href="#">Pages<img src="{{ static('svg/down.svg') }}" alt="" class="fn__svg"></a>
+						<ul class="sub-menu">
+							<li><a href="activity.html">Activity</a></li>
+							<li><a href="add-item.html">Add Item</a></li>
+							<li><a href="artists.html">Artists</a></li>
+							<li><a href="auctions.html">Auctions</a></li>
+							<li><a href="author-activity.html">Author Activity</a></li>
+							<li><a href="author-added-collections.html">Author Added Collections</a></li>
+							<li><a href="author-added-items.html">Author Added Items</a></li>
+							<li><a href="author-collected.html">Author Collected</a></li>
+							<li><a href="author-liked-collections.html">Author Liked Collections</a></li>
+							<li><a href="author-liked-items.html">Author Liked Items</a></li>
+							<li><a href="author-offers-made.html">Author Offers Made</a></li>
+							<li><a href="author-offers-received.html">Author Offers Received</a></li>
+							<li><a href="blog.html">Blog</a></li>
+							<li><a href="blog-single.html">Blog Single</a></li>
+							<li><a href="categories.html">Categories</a></li>
+							<li><a href="category-single.html">Category Single</a></li>
+							<li><a href="collection-single-activity.html">Collection Single Activity</a></li>
+							<li><a href="collection-single-items.html">Collection Single Items</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="discover-collections.html">Discover Collections</a></li>
+							<li><a href="discover-items.html">Discover Items</a></li>
+							<li><a href="featured-collections.html">Featured Collections</a></li>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="popular-collections.html">Popular Collections</a></li>
+							<li><a href="product.html">Product</a></li>
+							<li><a href="rankings.html">Rankings</a></li>
+							<li><a href="search-result-collections.html">Search Result Collections</a></li>
+							<li><a href="search-result-items.html">Search Result Items</a></li>
+							<li><a href="selling.html">Selling</a></li>
+							<li><a href="sign-in.html">Sign In</a></li>
+							<li><a href="sign-up.html">Sign Up</a></li>
+							<li><a href="traders.html">Traders</a></li>
+							<li><a href="404.html">404 Page</a></li>
+						</ul>
+					</li>
+					<li><a href="selling.html">Start Selling</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- !Mobile Menu -->
+	
+	<!----------- Content ----------->
+    {% block content %}
+	
+	
+	
+	{% endblock %}
+    <!----------- !Content ----------->
+    
+	{% block footer %}
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="anor_fn_footer">
+			
+			<!-- Footer Top -->
+			<div class="footer_top">
+				<div class="container">
+					<div class="ft_in">
+					
+						<div class="ft_left">
+							<div class="ft_left_in">
+								<div class="logo">
+									<a href="index.html"><img src="{{ static('img/logo.png') }}" alt=""></a>
+								</div>
+								<div class="desc">
+									<p>Artifact collector and Parser. The goal of our project is to make those tedius command line tools easy to use and make our life easier.</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="ft_right">
+							<div class="title">
+								<h3 class="fn_title">Useful Links</h3>
+							</div>
+							<div class="link_list">
+								<ul>
+									<li><a href="#">Help Center</a></li>
+									<li><a href="#">Platform Status</a></li>
+									<li><a href="#">About Company</a></li>
+									<li><a href="rankings.html">Rankings</a></li>
+									<li><a href="#">Taxes</a></li>
+									<li><a href="blog.html">Blog / News</a></li>
+									<li><a href="#">Careers</a></li>
+									<li><a href="activity.html">Activity</a></li>
+									<li><a href="#">Partners</a></li>
+									<li><a href="#">Docs</a></li>
+									<li><a href="#">Ventures</a></li>
+								</ul>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<!-- !Footer Top -->
+			
+			
+			<!-- Footer Bottom -->
+			<div class="footer_bottom">
+				<div class="container">
+					<div class="fb_in">
+						
+						<div class="fb_left">
+							<ul>
+								<li>
+									<p>Copyright © 2022.  Designed By <a href="http://www.bootstrapmb.com/">Team</a>.</p>
+								</li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Terms of Service</a></li>
+							</ul>
+						</div>
+						
+						<div class="fb_right">
+							<div class="social_list">
+								<ul>
+									<li><a href="#"><i class="fn-icon-twitter"></i></a></li>
+									<li><a href="#"><i class="fn-icon-facebook"></i></a></li>
+									<li><a href="#"><i class="fn-icon-instagram"></i></a></li>
+									<li><a href="#"><i class="fn-icon-pinterest"></i></a></li>
+									<li><a href="#"><i class="fn-icon-behance"></i></a></li>
+								</ul>
+							</div>
+							<a href="#" class="totop"></a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<!-- !Footer Bottom -->
+			
+		</div>
+	</footer>
+	<!-- !Footer -->
+    {% endblock %}
+	 
+	 
+	 <!-- Magic Cursor -->
+	<div class="frenify-cursor cursor-outer" data-default="yes" data-link="yes" data-slider="yes"><span class="fn-cursor"></span></div>
+	<div class="frenify-cursor cursor-inner" data-default="yes" data-link="yes" data-slider="yes"><span class="fn-cursor"><span class="fn-left"></span><span class="fn-right"></span></span></div>
+	 <!-- !Magic Cursor -->
+
+</div>
+<!-- !Main -->
+
+
+    {% block scripts %}
+    <!-- Scripts -->
+    <script type="text/javascript" src="{{ static('js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ static('js/chart.js') }}"></script>
+    <script type="text/javascript" src="{{ static('js/popper.js') }}"></script>
+    <script type="text/javascript" src="{{ static('js/tippy.js') }}"></script>
+    <script type="text/javascript" src="{{ static('js/countto.js') }}"></script>
+    <script type="text/javascript" src="{{ static('js/waypoints.js') }}"></script>
+    <script type="text/javascript" src="{{ static('js/select2.js') }}"></script>
+    <script type="text/javascript" src="{{ static('js/flickity.js') }}"></script>
+    <!--[if lt IE 10]> <script type="text/javascript" src="{{ static('js/ie8.js') }}"></script> <![endif]-->
+    <script type="text/javascript" src="{{ static('js/init.js') }}"></script>
+    <!-- !Scripts -->
+    {% endblock %}
+</body>
+
+</html>

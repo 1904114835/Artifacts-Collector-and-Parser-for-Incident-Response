@@ -1,0 +1,40 @@
+﻿{% extends 'activity_base.html' %}
+
+{% block table_header %}
+<div class="item item_info">Event</div>
+<div class="item item_time" style="width: 300px;">MAC address</div>
+<div class="item item_time" style="width: 300px;">Description</div>
+{% endblock %}
+
+{% block table_content %}
+{% for item in items %}
+
+<!-- Activity Item #{{ loop.index }} -->
+<div class="at_item">
+
+	<!-- Info -->
+	<div class="item item_info">
+		<div class="item__short">
+			<div class="img_holder">
+				<!-- <a href="product.html" class="full_link"></a> -->
+				<img src="{{ static('img/media.png') }}" alt="">
+			</div>
+			<div class="item_desc">
+				<h3 class="fn_title"><a href="{{ url('item', args=['iconcache', item.idx]) }}">{{ item.event }}</a></h3>
+				<p class="fn_desc">
+
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="item item_time" style="width: 300px;">{{ item.mac_addr }}</div>
+
+	<!-- To -->
+	<div class="item item_to" style="width: 300px;">{{ item.path }}</div>
+
+</div>
+<!-- !Activity Item #{{ loop.index }} -->
+
+{% endfor %}
+{% endblock %}

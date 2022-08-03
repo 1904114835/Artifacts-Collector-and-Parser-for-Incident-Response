@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!----------- Content ----------->
+
+<div class="anor_fn_discover">
+    <div class="container">
+        <div class="discover_page">
+
+
+            <!-- Discover Page Title -->
+            <div class="page_title_holder">
+                <h3 class="fn_title">Supported Artifacts</h3>
+                <p class="fn_desc">We are dealing with all sources of artifacts, collected from different version of
+                    Windows operating systems.</p>
+            </div>
+            <!-- !Discover Page Title -->
+
+
+            <!-- Anor List -->
+            <div>
+                <ul class="anor_fn_list" data-cols="4" data-gap="30">
+                    <!-- TODO: for loop index_page_items
+                            title count logopath -->
+                    {% for item in index_page_items %}
+                    <li>
+                        <div class="fn__category_item">
+                            <a href="{{ url(item['blog_url']) }}" class="full_link"></a>
+                            <img src="{{ static(item['img_url']) }}" alt=""
+                                style="width:70%; height:70%;margin-top: 10%;margin-left: 10%;">
+                            <div class="title_holder">
+                                <h3 class="fn_title"><a href="{{ url(item['blog_url']) }}">{{ item['name'] }}</a></h3>
+                                <p>{{ item['count'] }} Items</p>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                <!-- Clearfix -->
+                <div class="clearfix"></div>
+
+            </div>
+            <!-- !Anor List -->
+
+        </div>
+    </div>
+</div>
+
+<!----------- !Content ----------->
+{% endblock %}

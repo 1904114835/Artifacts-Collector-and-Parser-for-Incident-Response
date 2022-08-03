@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!----------- Content ----------->
+	
+<div class="anor_fn_blog_single">
+    <div class="container small">
+        <div class="blog_single">
+            
+            <!-- Author Information Box -->
+            <div class="anor_fn_author_info">
+                <div class="info_img">
+                    <img src="{% block image %} {% endblock %}" alt="">
+                </div>
+                <div class="info_desc">
+                    <h3 class="fn_title">{% block artifact_name %} {% endblock %}</h3>
+                    <p class="fn_desc">{% block artifact_description %} {% endblock %}</p>
+                    <ul class="social">
+                        <li><a href="#"><i class="fn-icon-twitter"></i></a></li>
+                        <li><a href="#"><i class="fn-icon-facebook"></i></a></li>
+                        <li><a href="#"><i class="fn-icon-instagram"></i></a></li>
+                        <li><a href="#"><i class="fn-icon-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fn-icon-behance"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- !Author Information Box -->
+            
+            
+            <!-- Blog Container -->
+            <div class="blog_container">
+                
+                
+                <!-- Blog Title -->
+                <div class="title_holder">
+                    <h3 class="fn_title">{% block title %} {% endblock %}</h3>
+                </div>
+                <!-- !Blog Title -->
+                
+                
+                <!-- Blog Content -->
+                <div class="blog_content">
+                    {% block blog_content %}
+                    {% endblock %}
+                </div>
+                <!-- !Blog Content -->
+                
+                
+                
+                
+                
+                
+            </div>
+            <!-- !Blog Container -->
+            
+            
+        </div>
+    </div>
+</div>
+
+<!----------- !Content ----------->
+{% endblock %}

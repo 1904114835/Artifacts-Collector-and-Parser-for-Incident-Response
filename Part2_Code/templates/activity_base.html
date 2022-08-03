@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!----------- Content ----------->
+
+<div class="anor_fn_activity_page">
+
+
+    <!-- Tabs -->
+    <div class="anor_fn_tabs">
+
+        <!-- Tab Bottom -->
+        <div class="tab_bottom">
+
+            <!-- Filter Part -->
+            {% include 'activity_filter.html' %}
+            <!-- !Filter Part -->
+
+            <!-- Tab Content -->
+            <div class="tab_content">
+
+
+                <!-- Activity -->
+                <div class="fn__activity_table activity">
+
+                    <!-- Activity Header -->
+                    <div class="at_header">
+                        {% block table_header %}
+
+                        {% endblock %}
+                    </div>
+                    <!-- !Activity Header -->
+
+
+                    <!-- Activity List -->
+                    <div class="at_list">
+                        {% block table_content %}
+
+                        {% endblock %}
+
+                    </div>
+                    <!-- !Activity List -->
+
+                </div>
+                <!-- !Activity -->
+
+
+            </div>
+            <!-- !Tab Content -->
+
+        </div>
+        <!-- !Tab Bottom -->
+
+    </div>
+    <!-- !Tabs -->
+
+</div>
+
+<!----------- !Content ----------->
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'blog/blog_base.html' %}
+
+{% block image %}
+{{ static('img/Registry_Editor_icon.png') }}
+{% endblock %}
+
+
+{% block artifact_name %} Registry Autorun {% endblock %}
+
+{% block artifact_description %} The registry is a hierarchical database that contains data that is critical for the operation of Windows and the applications and services that run on Windows. The data is structured in a tree format. Each node in the tree is called a key. Each key can contain both subkeys and data entries called values. {% endblock %}
+
+{% block title %}Autoruns for Windows{% endblock %}
+
+
+{% block blog_content %}
+<p>This utility, which has the most comprehensive knowledge of
+auto-starting locations of any startup monitor, shows you what programs
+are configured to run during system bootup or login, and when you start
+various built-in Windows applications like Internet Explorer, Explorer
+and media players. These programs and drivers include ones in your
+startup folder, Run, RunOnce, and other Registry keys.
+<em>Autoruns</em>&nbsp;reports Explorer shell extensions, toolbars, browser helper
+objects, Winlogon notifications, auto-start services, and much
+more.&nbsp;<em>Autoruns</em> goes way beyond other autostart utilities.</p>
+<p><em>Autoruns</em>'&nbsp;<strong>Hide Signed Microsoft Entries</strong>&nbsp;option helps you to zoom
+in on third-party auto-starting images that have been added to your
+system and it has support for looking at the auto-starting images
+configured for other accounts configured on a system. Also included in
+the download package is a command-line equivalent that can output in CSV
+format, Autorunsc.</p>
+<p>You'll probably be surprised at how many executables are launched
+automatically!</p>
+<h2 id="screenshot" class="heading-anchor"><a class="anchor-link docon docon-link" href="#screenshot" aria-labelledby="screenshot"></a>Screenshot</h2>
+<p><img src="{{ static('img/Regstry_Editor.png') }}" alt="Autoruns" data-linktype="relative-path"></p>
+<h2 id="usage" class="heading-anchor"><a class="anchor-link docon docon-link" href="#usage" aria-labelledby="usage"></a>Usage</h2>
+<p>Simply run&nbsp;<em>Autoruns</em>&nbsp;and it shows you the currently configured
+auto-start applications as well as the full list of Registry and file
+system locations available for auto-start configuration. Autostart
+locations displayed by Autoruns include logon entries, Explorer add-ons,
+Internet Explorer add-ons including Browser Helper Objects (BHOs),
+Appinit DLLs, image hijacks, boot execute images, Winlogon notification
+DLLs, Windows Services and Winsock Layered Service Providers, media
+codecs, and more. Switch tabs to view autostarts from different
+categories.</p>
+<p>To view the properties of an executable configured to run automatically,
+select it and use the&nbsp;<strong>Properties</strong>&nbsp;menu item or toolbar button. If
+<a href="process-explorer" data-linktype="relative-path">Process Explorer</a>&nbsp;is
+running and there is an active process executing the selected executable
+then the&nbsp;<strong>Process Explorer</strong>&nbsp;menu item in the&nbsp;<strong>Entry</strong>&nbsp;menu will open
+the process properties dialog box for the process executing the selected
+image.</p>
+<p>Navigate to the Registry or file system location displayed or the
+configuration of an auto-start item by selecting the item and using
+the&nbsp;<strong>Jump</strong>&nbsp;<strong>to Entry</strong> menu item or toolbar button, and navigate to
+the location of an autostart image.</p>
+<p>To disable an auto-start entry uncheck its check box. To delete an
+auto-start configuration entry use the&nbsp;<strong>Delete</strong>&nbsp;menu item or toolbar
+button.</p>
+<p>The Options menu includes several display filtering options, such as
+only showing non-Windows entries, as well as access to a scan options
+dialog from where you can enable signature verification and Virus Total
+hash and file submission.</p>
+<p>Select entries in the&nbsp;<strong>User</strong>&nbsp;menu to view auto-starting images for
+different user accounts.</p>
+<p>More information on display options and additional information is
+available in the on-line help.</p>
+<h2 id="autorunsc-usage" class="heading-anchor"><a class="anchor-link docon docon-link" href="#autorunsc-usage" aria-labelledby="autorunsc-usage"></a>Autorunsc Usage</h2>
+<p>Autorunsc is the command-line version of Autoruns. Its usage syntax is:</p>
+<p><strong>Usage: autorunsc [-a &lt;*|bdeghiklmoprsw&gt;] [-c|-ct] [-h]
+[-m] [-s] [-u] [-vt] [[-z ] | [user]]]</strong></p>
+{% endblock %}
