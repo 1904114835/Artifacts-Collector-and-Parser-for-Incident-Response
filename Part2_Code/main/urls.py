@@ -35,18 +35,20 @@ type_of_artifacts = [BasicInfor,
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('artifact/<str:artifact_name>', views.artifact_list, name='artifact_list'),
     path('iconcache/', views.iconcache, name='activity_iconcache'),
     path('basicinfor/', views.basicinfor, name='activity_basicinfor'),
     path('eventlog/', views.eventlog, name='activity_eventlog'),
     path('registryautorun/', views.registryautorun, name='activity_registryautorun'),
     path('item/<str:event>/<str:idx>', views.item, name='item'),
-    path('piechart/', views.piechart, name='piechart'),
-    path('barchart/', views.barchart, name='barchart'),
-    path('analysis/', views.analysis, name='analysis'),
+    # path('piechart/', views.piechart, name='piechart'),
+    path('barchart/<str:mac_addr>', views.barchart, name='barchart'),
+    path('analysis/<str:mac_addr>', views.analysis, name='analysis'),
     path('aboutus/', views.about_us, name='aboutus'),
-    path('devicelist/', views.device_list, name='device_list'),
+    path('devicelist/', views.device_list_view, name='device_list'),
     path('test/', views.test, name='test'),
     path('detector/', views.detector, name='detector'),
+    path('urldector', views.urldector, name='urldector'),
 ]
 
 for artifact_cls in type_of_artifacts:

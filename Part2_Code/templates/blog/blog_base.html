@@ -10,7 +10,7 @@
             <!-- Author Information Box -->
             <div class="anor_fn_author_info">
                 <div class="info_img">
-                    <img src="{% block image %} {% endblock %}" alt="">
+                    <img src="{% block image %}{{static(img_url)}}{% endblock %}" alt="">
                 </div>
                 <div class="info_desc">
                     <h3 class="fn_title">{% block artifact_name %} {% endblock %}</h3>

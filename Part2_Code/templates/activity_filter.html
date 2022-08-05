@@ -22,46 +22,21 @@
                 <div class="ic_in">
 
                     <ul class="items">
+                        {% for device in device_list %}
                         <li>
                             <div class="item">
-                                <label class="checkbox">Zhu Yongyu's Windows10
-                                    <span class="verified_icon tippy" data-tippy-content="Verified Collection"><img
-                                            src={{ static('svg/checked.svg') }} alt="" class="fn__svg"></span>
-                                    <input type="checkbox" checked>
+                                <label class="checkbox">{{ device['hostname'] }}
+                                    {% if device['isActive'] %}<span class="verified_icon tippy" data-tippy-content="Verified Collection"><img
+                                            src={{ static('svg/checked.svg') }} alt="" class="fn__svg"></span>{% endif %}
+                                    <input type="checkbox" {% if device['hostname'] in checked_hostnames %}checked{% endif %}>
                                     <span class="checkmark"><img src={{ static('svg/checked.svg') }} alt=""
                                             class="fn__svg"></span>
                                 </label>
                             </div>
                         </li>
-                        <li>
-                            <div class="item">
-                                <label class="checkbox">Zhu Yongyu's Windows7
-                                    <span class="verified_icon tippy" data-tippy-content="Verified Collection"><img
-                                            src={{ static('svg/checked.svg') }} alt="" class="fn__svg"></span>
-                                    <input type="checkbox">
-                                    <span class="checkmark"><img src={{ static('svg/checked.svg') }} alt=""
-                                            class="fn__svg"></span>
-                                </label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item">
-                                <label class="checkbox">Wu ruilin's Windows10
-                                    <input type="checkbox">
-                                    <span class="checkmark"><img src={{ static('svg/checked.svg') }} alt=""
-                                            class="fn__svg"></span>
-                                </label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item">
-                                <label class="checkbox">Wu ruilin's home device
-                                    <input type="checkbox">
-                                    <span class="checkmark"><img src={{ static('svg/checked.svg') }} alt=""
-                                            class="fn__svg"></span>
-                                </label>
-                            </div>
-                        </li>
+                        {% endfor %}
+
+                        
                     </ul>
 
                 </div>
@@ -80,42 +55,17 @@
                 <div class="ic_in">
 
                     <ul class="items">
+                        {% for event in type_of_artifacts %}
                         <li class="half">
                             <div class="item">
-                                <label class="checkbox">IconCache
-                                    <input type="checkbox" checked>
+                                <label class="checkbox"> {{ event.__name__ }}
+                                    <input type="checkbox"  {% if checked_type == event.__name__ %}checked{% endif %}>
                                     <span class="checkmark"><img src={{ static('svg/checked.svg') }} alt=""
                                             class="fn__svg"></span>
                                 </label>
                             </div>
                         </li>
-                        <li class="half">
-                            <div class="item">
-                                <label class="checkbox">BasicInfor
-                                    <input type="checkbox">
-                                    <span class="checkmark"><img src={{ static('svg/checked.svg') }} alt=""
-                                            class="fn__svg"></span>
-                                </label>
-                            </div>
-                        </li>
-                        <li class="half">
-                            <div class="item">
-                                <label class="checkbox">Event Log
-                                    <input type="checkbox">
-                                    <span class="checkmark"><img src={{ static('svg/checked.svg') }} alt=""
-                                            class="fn__svg"></span>
-                                </label>
-                            </div>
-                        </li>
-                        <li class="half">
-                            <div class="item">
-                                <label class="checkbox">Registry
-                                    <input type="checkbox">
-                                    <span class="checkmark"><img src={{ static('svg/checked.svg') }} alt=""
-                                            class="fn__svg"></span>
-                                </label>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
 
                 </div>

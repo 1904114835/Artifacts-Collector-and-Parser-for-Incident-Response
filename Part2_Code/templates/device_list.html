@@ -75,12 +75,12 @@
 									<div class="fn_counter">{{ loop.index }}</div>
 									<div class="item__short">
 										<div class="img_holder">
-											<a href="product.html" class="full_link"></a>
+											<a href="{{ url('analysis', kwargs={'mac_addr':device['mac_addr']})}}" class="full_link"></a>
 											<img src="{{ static(device['img_url']) }}" alt="">
 											
 										</div>
 										<div class="item_desc">
-											<h3 class="fn_title"><a href="product.html">{{ device['hostname'] }}</a></h3>
+											<h3 class="fn_title"><a href="{{ url('analysis', kwargs={'mac_addr':device['mac_addr']})}}">{{ device['hostname'] }}</a></h3>
 											<p class="fn_desc">
 												<a href="collection-single-items.html">{{ device['mac_addr'] }}
 													{% if device['isActive'] %}

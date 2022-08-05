@@ -16,6 +16,7 @@
             {% include 'activity_filter.html' %}
             <!-- !Filter Part -->
 
+            {% block tab_content %}
             <!-- Tab Content -->
             <div class="tab_content">
 
@@ -26,7 +27,10 @@
                     <!-- Activity Header -->
                     <div class="at_header">
                         {% block table_header %}
-
+                        <div class="item">Event</div>
+                        {% for header in headers %}
+                        <div class="item" style="width: 300px;">{{ header }}</div>
+                        {% endfor %}
                         {% endblock %}
                     </div>
                     <!-- !Activity Header -->
@@ -35,7 +39,36 @@
                     <!-- Activity List -->
                     <div class="at_list">
                         {% block table_content %}
+                        {% for item in items %}
 
+                        <!-- Activity Item #{{ loop.index }} -->
+                        <div class="at_item">
+
+                            <div class="item">
+                                <div class="item__short">
+                                    <div class="img_holder">
+                                        <!-- <a href="product.html" class="full_link"></a> -->
+                                        <img src="{{ static(img_url) }}" alt="">
+                                    </div>
+                                    <div class="item_desc">
+                                        <!-- <h3 class="fn_title">title</h3> -->
+                                        <!-- <p class="fn_desc">
+					desc
+				</p> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% for key in item %}
+
+                            <div class="item" style="width: 300px;">{{ str(item[key])[:15] + "..." if len(str(item[key])) > 30 else str(item[key]) }}</div>
+
+                            {% endfor %}
+
+                        </div>
+                        <!-- !Activity Item #{{ loop.index }} -->
+
+                        {% endfor %}
                         {% endblock %}
 
                     </div>
@@ -47,6 +80,7 @@
 
             </div>
             <!-- !Tab Content -->
+            {% endblock %}
 
         </div>
         <!-- !Tab Bottom -->

@@ -265,14 +265,18 @@
 							<li class="menu-item-has-children">
 								<a href="#">Discover<img src="{{ static('svg/down.svg') }}" alt="" class="fn__svg"></a>
 								<ul class="sub-menu">
+									{% for artifact_cls in type_of_artifacts %}
+							<!-- 'blog_{}'.format(artifact_cls.__name__.lower()), -->
+							<li><a href="{{ url('blog_{}'.format(artifact_cls.__name__.lower())) }}">{{artifact_cls.__name__}}</a></li>
+							{% endfor %}
 									<li><a href="{{ url('activity_iconcache') }}">Icon Cache</a></li>
-									<li><a href="{{ url('activity_basicinfor') }}">Basic Infor</a></li>
-									<li><a href="{{ url('activity_eventlog') }}">Event Log</a></li>
-									<li><a href="{{ url('activity_registryautorun') }}">Registry Autorun</a></li>
+									<!-- <li><a href="{{ url('activity_basicinfor') }}">Basic Infor</a></li> -->
+									<!-- <li><a href="{{ url('activity_eventlog') }}">Event Log</a></li> -->
+									<!-- <li><a href="{{ url('activity_registryautorun') }}">Registry Autorun</a></li> -->
 								</ul>
 							</li>
 							<li><a href="{{ url('device_list') }}">Devices</a></li>
-							<li><a href="{{ url('analysis') }}">Analysis</a></li>
+							
 							<li><a href="{{ url('detector') }}">Detector</a></li>
 							<li><a href="{{ url('aboutus') }}">About us</a></li>
 						</ul>
@@ -283,12 +287,12 @@
 				<!-- Right Part -->
 				<div class="header_right">
 					<div class="fn_search">
-						<input type="text" name="s" placeholder="Search Event" />
+						<!-- <input type="text" name="s" placeholder="Search Event" />
 						<input type="submit" value="" />
-						<img src="{{ static('svg/search.svg') }}" alt="" class="fn__svg">
+						<img src="{{ static('svg/search.svg') }}" alt="" class="fn__svg"> -->
 					</div>
 					<div class="fn_signin">
-						<a href="sign-in.html" class="anor_fn_button small">Sign In</a>
+						<!-- <a href="sign-in.html" class="anor_fn_button small">Admin</a> -->
 					</div>
 				</div>
 				<!-- !Right Part -->
@@ -305,7 +309,7 @@
 		<div class="mobile_menu_inner">
 			<div class="mobile_in">
 				<div class="logo">
-					<a href="index.html"><img style="width:128px; height:128px" src="{{ static('img/logo.png') }}" alt="" /></a>
+					<a href="/"><img style="width:128px; height:128px" src="{{ static('img/logo.png') }}" alt="" /></a>
 				</div>
 				<div class="trigger">
 					<div class="hamburger hamburger--slider">

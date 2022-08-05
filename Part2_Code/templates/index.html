@@ -25,11 +25,11 @@
                     {% for item in index_page_items %}
                     <li>
                         <div class="fn__category_item">
-                            <a href="{{ url(item['blog_url']) }}" class="full_link"></a>
+                            <a href="{{ item['artifact_list_url'] }}" class="full_link"></a>
                             <img src="{{ static(item['img_url']) }}" alt=""
                                 style="width:70%; height:70%;margin-top: 10%;margin-left: 10%;">
                             <div class="title_holder">
-                                <h3 class="fn_title"><a href="{{ url(item['blog_url']) }}">{{ item['name'] }}</a></h3>
+                                <h3 class="fn_title"><a href="{{ item['artifact_list_url'] }}">{{ item['name'] }}</a></h3>
                                 <p>{{ item['count'] }} Items</p>
                             </div>
                         </div>

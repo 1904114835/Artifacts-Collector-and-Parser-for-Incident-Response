@@ -1,0 +1,79 @@
+{% extends 'blog/blog_base.html' %}
+
+{% block title %}EvtxGrouppolicyOperational{% endblock %}
+
+
+{% block blog_content %}
+<div class="sect1">
+    <h2 id="eventlog-about"><a class="anchor" href="#eventlog-about"></a>About Windows Event Log</h2>
+    <div class="sectionbody">
+        <div class="paragraph">
+            <p>Windows Event Log captures the details of both system and application events.
+                When such an event occurs, Windows records it in the event log. The event log
+                is then used to find details about the event and can be helpful when
+                troubleshooting problems. Beside their use for IT related purposes, Windows
+                Event Logs are also used to satisfy compliance mandates.</p>
+        </div>
+        <div class="paragraph">
+            <p>Unlike other event logs, such as the UNIX Syslog, Windows Event Log is not
+                stored as a plain text file, but in a proprietary binary format. It is not
+                possible to view Windows Event Log in a text editor, nor is it possible to send
+                it as a Syslog event while retaining its original format. However, the raw event
+                data can be translated into XML using the
+                <a href="https://docs.microsoft.com/en-us/windows/win32/wes/windows-event-log">Windows
+                    Event Log API</a> and forwarded in that format.
+            </p>
+        </div>
+        <div class="sect2">
+            <h3 id="evtx"><a class="anchor" href="#evtx"></a>The EVTX file format</h3>
+            <div class="paragraph">
+                <p>Windows stores Windows Event Log files in the EVTX file format since the
+                    release of Windows
+                    Vista and Windows Server 2008. Prior to that, event log files were
+                    stored in the EVT file format. Both are proprietary formats readable by
+                    the Microsoft Management Console (MMC) snap-in <code>eventvwr.msc</code>.</p>
+            </div>
+            <div class="paragraph">
+                <p>The EVTX format includes many new features and enhancements: a number of new
+                    event properties, the use of channels to publish events, a new Event Viewer,
+                    a rewritten Windows Event Log service, and support for the Extensible Markup
+                    Language (XML) format.
+                    From a log processing perspective, the added support for XML is the most
+                    important addition, as it provides the possibility to share or further process
+                    the event data in a structured format.</p>
+            </div>
+            <div class="paragraph">
+                <p>For the built in channels, Windows automatically saves the corresponding EVTX
+                    file into the <code>C:\Windows\System32\winevt\Logs\</code> directory. Events can also be
+                    saved manually from the Event Viewer MMC snap-in, in four different formats:
+                    EVTX, XML, TXT, and CSV.</p>
+            </div>
+            <div class="paragraph">
+                <p>NXLog can directly read EVTX and EVT files using the <em>im_msvistalog</em>
+                    <a href="../../refman/v5.5/im/msvistalog.html#config-file" class="xref page">File</a> directive. In
+                    addition, the
+                    <a href="../../refman/v5.5/im/msvistalog.html#config-captureeventxml"
+                        class="xref page">CaptureEventXML</a> directive of the same
+                    module can be used to store and send raw XML-formatted event data in the
+                    <code>$EventXML</code> field.
+                </p>
+            </div>
+        </div>
+        <div class="sect2">
+            <h3 id="viewing"><a class="anchor" href="#viewing"></a>Viewing the Windows Event Log</h3>
+            <div class="paragraph">
+                <p>The Windows Event Log can be viewed in the Event Viewer MMC snap-in included
+                    in Windows. Windows Event Logs are stored in a binary source data
+                    format, which is the "source" or "on-disk" format. It does not include the full
+                    message, only the event properties. When an event is rendered, property values
+                    are inserted into the localized message template stored elsewhere on disk.</p>
+            </div>
+            <div class="paragraph">
+                <p>The Event Viewer includes three views for displaying the data for a selected
+                    event. These are shown on the preview pane or in the <strong>Event Properties</strong> window
+                    when an event is opened.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

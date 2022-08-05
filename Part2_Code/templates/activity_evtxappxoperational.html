@@ -1,0 +1,45 @@
+﻿{% extends 'activity_base.html' %}
+
+{% block table_header %}
+<div class="item">Event</div>
+<div class="item" style="width: 300px;">MAC address</div>
+<div class="item" style="width: 100px;">Detailed Version</div>
+<div class="item" style="width: 100px;">User</div>
+<div class="item" style="width: 300px;">Last Shutdown Time</div>
+{% endblock %}
+
+{% block table_content %}
+{% for item in items %}
+
+<!-- Activity Item #{{ loop.index }} -->
+<div class="at_item">
+
+	<!-- Info -->
+	<div class="item item_info">
+		<div class="item__short">
+			<div class="img_holder">
+				<!-- <a href="product.html" class="full_link"></a> -->
+				<img src="{{ static('img/tape.png') }}" alt="">
+			</div>
+			<div class="item_desc">
+				<h3 class="fn_title">{{ item.event }}</h3>
+				<p class="fn_desc">
+					{{ item.os_version }}
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="item" style="width: 300px;">{{ item.mac_addr }}</div>
+
+	<div class="item" style="width: 100px;">{{ item.detailed_version }}</div>
+
+	<div class="item" style="width: 100px;">{{ item.user }}</div>
+
+	<div class="item" style="width: 300px;">{{ item.last_shutdown_time }}</div>
+
+</div>
+<!-- !Activity Item #{{ loop.index }} -->
+
+{% endfor %}
+{% endblock %}
